@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tabla de jugadores</title>
+  <style>
+    table {
+      width: 100%;
+	  height: 100%;
+	  	  font-size : 50px;
+
+    }
+ input {
+      width: 100%;
+	  height: 50px;
+	  	  	  font-size : 50px;
+
+    } 
+	label {
+      width: 100%;
+	  height: 50px
+	  	  	  font-size : 50px;
+
+    }
+	
+		button {
+      width: 100%;
+	  height: 100px;
+	  	  	  font-size : 50px;
+
+    }
+
+table tr 
+{
+height: 50px;
+}
+    table th
+	{
+	width: 1%;
+
+	}
+    table td {
+      border: 1px solid black;
+      padding: 5px;
+	  height: 100%;
+
+
+    }
+
+    table th {
+      background-color: #ccc;
+    }
+
+    table tfoot {
+      text-align: right;
+	  width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <table class="table">
+    <thead >
+      <tr >
+        <th >Nombre</th>
+        <th >Puntos</th>
+        <th >Sumar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td><input type="text" id="nombre_1" placeholder="Nombre" ></td>
+        <td><label id="puntos_1" >0</label></td>
+        <td><input type="number" id="sumar_1" value="0"  ></td>
+      </tr>
+      <tr >
+        <td><input type="text" id="nombre_2" placeholder="Nombre" ></td>
+        <td><label id="puntos_2" >0</label></td>
+        <td><input type="number" id="sumar_2" value="0"  ></td>
+      </tr>
+      <tr >
+        <td><input type="text" id="nombre_3" placeholder="Nombre" ></td>
+        <td><label id="puntos_3" >0</label></td>
+        <td><input type="number" id="sumar_3" value="0"  ></td>
+      </tr>
+	        <tr >
+        <td><input type="text" id="nombre_4" placeholder="Nombre" ></td>
+        <td><label id="puntos_4" >0</label></td>
+        <td><input type="number" id="sumar_4" value="0"  ></td>
+      </tr>
+	        <tr >
+        <td><input type="text" id="nombre_5" placeholder="Nombre" ></td>
+        <td><label id="puntos_5" >0</label></td>
+        <td><input type="number" id="sumar_5" value="0"  ></td>
+      </tr>
+	        <tr >
+        <td><input type="text" id="nombre_6" placeholder="Nombre" ></td>
+        <td><label id="puntos_6" >0</label></td>
+        <td><input type="number" id="sumar_6" value="0"  ></td>
+      </tr>
+	        <tr >
+        <td><input type="text" id="nombre_7" placeholder="Nombre" ></td>
+        <td><label id="puntos_7" >0</label></td>
+        <td><input type="number" id="sumar_7" value="0"  ></td>
+      </tr>
+	        <tr >
+        <td><input type="text" id="nombre_8" placeholder="Nombre" ></td>
+        <td><label id="puntos_8" >0</label></td>
+        <td><input type="number" id="sumar_8" value="0"  ></td>
+      </tr>
+    </tbody>
+	 <tfoot>
+      <tr >
+        <td colspan="3">
+          <button id="actualizar">Actualizar</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+
+
+  <script>
+  
+    // Función para actualizar la puntuación de una fila
+function actualizarPuntuacion(fila, valor) {
+  // Obtenemos el valor actual de la puntuación
+  var puntos = parseInt(document.getElementById("puntos_"+fila).innerHTML);
+
+  // Comprobamos el valor actual de la puntuación
+ 
+    // Sumamos el valor introducido en el campo Sumar
+    var nuevaPuntuacion = puntos + parseInt(valor);
+ 
+
+  // Actualizamos la puntuación
+  document.getElementById("puntos_" + fila).innerHTML = nuevaPuntuacion;
+  
+  //Eliminamos contenido.
+  document.getElementById("sumar_" + fila).value = "0";
+}
+
+
+    // Evento de click en el botón de sumar
+    document.getElementById("actualizar").addEventListener("click", function() {
+      // Recorremos las filas
+      for (var i = 1; i <= 8; i++) {
+        // Actualizamos la puntuación de la fila
+        actualizarPuntuacion(i, document.getElementById("sumar_" + i).value);
+      }
+    });
+  </script>
+</body>
+</html>
+
